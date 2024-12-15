@@ -1,0 +1,40 @@
+// Shadow
+@mixin shadow($shadow) {
+    box-shadow: $shadow !important;
+}
+
+// Color
+@mixin color($color, $bg: false){
+    @if $bg {
+        background-color: $color!important;
+    } @else{
+        color: $color!important;
+    }
+}
+
+//align flex
+@mixin flex-vertical-center {
+    display: flex;
+    align-items: center;
+}
+
+// Text truncate
+@mixin text-truncate($w:100%){
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: $w;
+}
+
+// Font family
+@mixin roboto {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Themes
+@mixin  theme {
+    @include angular-material-theme($Forum-Design-System-theme);
+    /*.dark-theme{
+        @include angular-material-theme($Forum-Design-System-theme-dark);
+    }*/
+}

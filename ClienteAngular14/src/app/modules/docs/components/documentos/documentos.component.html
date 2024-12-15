@@ -1,0 +1,25 @@
+<menu class="m-0 p-3 bg-primary-dark text-white">
+  <div class="px-2">
+    <header class="row align-items-center mb-3">
+      <button (click)="close()" mat-icon-button class="mr-2">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h2 class="font-weight-bold text-center mb-0">Estado de documentos</h2>
+    </header>
+    <p>Este es el estado de sus documentos:</p>
+
+	<!--<app-doc *ngFor="let doc of service.docCompartido?.documentos; let i = index" nameDoc="{{doc.nombre}}" colorTxt="text-white" [signed]="false" [borderOpacity]="true"></app-doc>-->
+
+    <ng-container *ngFor="let doc of service.docCompartido; let i = index" >
+      <app-doc *ngIf="service.docCompartido?.documentos[i].tipo_firma == 'FEA'" nameDoc="{{doc.nombre}}" colorTxt="text-white" [signed]="false" [borderOpacity]="true"></app-doc>
+    </ng-container>
+
+    <div class="d-flex justify-content-center mt-5 mb-4">
+      <button class="btn-frm frm-tertiary px-4">
+        <mat-icon>file_download</mat-icon>
+        Descargar todo
+      </button>
+    </div>
+
+  </div>
+</menu>

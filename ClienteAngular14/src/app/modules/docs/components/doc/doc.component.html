@@ -1,0 +1,19 @@
+<div [class]="'row mx-0 align-items-center py-3 border-bottom ' + colorTxt"
+[ngClass]="borderOpacity ? 'border-white-30' : ''">
+
+  <div *ngIf="success">
+    <mat-icon class="align-middle text-success-frm">verified</mat-icon>
+  </div>
+
+  <div class="text-center col-1 col-sm-2 pl-0" *ngIf="signed || signed == false">
+      <mat-icon>{{ signed ? 'verified' : 'pending_actions' }}</mat-icon>
+      <span class="d-none d-md-block">{{ signed ? 'Firmados' : 'Pendientes' }}</span>
+  </div>
+
+  <p class="col text-left mb-0 font-weight-bold pl-md-0 pl-lg-3">{{ nameDoc }}</p>
+
+  <div class="col text-right pr-0">
+    <button (click)="viewDoc()" mat-icon-button><mat-icon>visibility</mat-icon></button>
+   <!--  <button mat-icon-button><mat-icon>file_download</mat-icon></button> -->
+  </div>
+</div>

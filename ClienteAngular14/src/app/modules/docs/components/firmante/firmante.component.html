@@ -1,0 +1,17 @@
+<div class="row mx-0 align-items-center py-3 border-bottom border-white-30 text-white">
+  <div>
+    <mat-icon class="align-middle">person</mat-icon>
+  </div>
+  <div class="col text-left mb-0 font-16">
+    <h3 class="font-weight-bold mb-0">{{ type }}</h3>
+    <p class="mb-1">{{ name }}</p>
+  </div>
+  <div class="col text-right d-flex justify-content-end">
+
+    <div class="text-center">
+      <mat-icon>{{ signed ? 'verified' : 'pending_actions' }}</mat-icon>
+      <span class="d-block">{{ signed ? 'Firmados' : 'Pendientes' }}</span>
+    </div>
+
+  </div>
+</div>

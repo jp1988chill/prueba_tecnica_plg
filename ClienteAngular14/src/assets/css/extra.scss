@@ -1,0 +1,71 @@
+/*Si se necesita algún nuevo estilo, agregarlo en este archivo*/
+@import '../sass/utils/variables';
+/*OWL*/
+.owl-theme .owl-dots{
+  // pointer-events: none;
+  .owl-dot{
+    &:hover span,
+    &.active span{
+      background-color: $primary-default;
+    }
+    span{
+      background-color: $gray;
+    }
+  }
+}
+/*OWL*/
+/*Dialog*/
+.mat-dialog-container,
+.mat-bottom-sheet-container{
+  padding: 0!important;
+}
+@media screen and (min-width: 768px) {
+  .dialog{
+    width: 60%!important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .dialog{
+    width: 50%!important;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .dialog{
+    width: 40%!important;
+  }
+}
+/*Dialog*/
+/*Stteper*/
+mat-horizontal-stepper{
+  div.mat-horizontal-stepper-header-container{
+    pointer-events: none;
+    mat-step-header{
+      .mat-step-icon{
+        margin: 0 auto!important;
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+}
+/*Stteper*/
+/*BottomSheet*/
+@media screen and (min-width: 960px) and (max-width: 1280px) {
+  .mat-bottom-sheet-container-medium{
+    min-width: 480px!important;
+  }
+}
+/*BottomSheet*/
+
+/*Mat snackbar*/
+.mat-snack-bar-container{
+  padding: 0!important;
+  div{
+    height: 100%!important;
+  }
+}
+/*Mat snackbar*/

@@ -1,0 +1,13 @@
+<app-preload *ngIf="preload" message="Aplicación Demo"></app-preload>
+<div class="container mb-5">
+  <h1 class="font-weight-bold pt-4">Listado de Clientes:</h1>
+
+  <ul>
+    <li *ngFor="let doc of clientData.clientesNuevoTokenAsignado; let i = index">
+      <p> Nombre: <b>{{doc.name}} </b> </p>
+      <p> País: <b>{{doc.country}} </b> </p>
+      <p> Teléfono: <b>{{ phoneFormatter.transform(doc.phone) }} </b> </p>
+  </li>
+  </ul>
+
+</div>

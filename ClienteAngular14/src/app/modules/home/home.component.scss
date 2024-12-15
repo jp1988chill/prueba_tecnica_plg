@@ -1,0 +1,47 @@
+@import '../../../assets/sass/utils/variables';
+
+$rgbDark: rgba(102, 102, 102, 0.1);
+$rgbPrimary: rgba(2, 165, 165, 0.1);
+
+@keyframes at-ripple {
+  0% {
+    box-shadow:
+    0 4px 15px $rgbDark,
+    0 0 0 0 $rgbDark,
+    0 0 0 5px $rgbDark,
+    0 0 0 15px $rgbDark;
+  }
+  100% {
+    box-shadow:
+    0 4px 15px $rgbDark,
+    0 0 0 5px $rgbDark,
+    0 0 0 15px $rgbDark,
+    0 0 0 25px rgba($rgbDark, 0);
+  }
+}
+@keyframes at-ripple-color {
+  0% {
+    box-shadow:
+    0 4px 15px $rgbPrimary,
+    0 0 0 0 $rgbPrimary,
+    0 0 0 5px $rgbPrimary,
+    0 0 0 15px $rgbPrimary;
+  }
+  100% {
+    box-shadow:
+    0 4px 15px $rgbPrimary,
+    0 0 0 5px $rgbPrimary,
+    0 0 0 15px $rgbPrimary,
+    0 0 0 25px rgba($rgbPrimary, 0);
+  }
+}
+.btn-ripple-ani {
+  box-sizing: border-box;
+  animation: at-ripple .9s linear infinite;
+}
+.btn-ripple-ani.btn-color {
+  background: $primary-default;
+  color:$white;
+  animation: at-ripple-color .9s linear infinite;
+
+}

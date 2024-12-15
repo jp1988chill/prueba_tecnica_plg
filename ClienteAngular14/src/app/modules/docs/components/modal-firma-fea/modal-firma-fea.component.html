@@ -1,0 +1,29 @@
+<alert></alert>
+<div class="py-3 px-4">
+  <div class="justify-content-end row">
+    <button mat-dialog-close mat-icon-button (click)="closeFirmaFeaButton()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="border-bottom mt-2 mb-3 pb-3">
+    <h2 class="font-18 font-weight-bold text-center">Resúmen de documentos a firmar</h2>
+    <p>Va a firmar los siguientes documentos que corresponden a su crédito N° 12345 solicitado en la fecha 01/04/2022, el cual equivale a $15.125.326</p>
+  </div>
+
+  <div class="border-bottom mb-3 pb-3">
+    <h2 class="font-18 font-weight-bold">Documentos a firmar</h2>
+	<ng-container *ngFor="let doc of service.docCompartido?.documentos; let i = index" >
+		<app-doc *ngIf="service.docCompartido?.documentos[i].tipo_firma =='FEA'" nameDoc="{{doc.nombre}}" [signed]="false"></app-doc>
+	</ng-container>	
+  </div>
+
+  <app-notice class="d-block mt-4 mb-4" type="warning" message="Para firmar estos documentos necesitará su clave de seguridad <strong>(PIN)</strong> creada en <strong>firmaya.cl</strong>"></app-notice>
+
+  <ng-container *ngIf="(submitFirmaYa == false)">
+  <div class="d-flex justify-content-center my-4">
+    <button (click)="openPopupModalFirmaYa()" class="px-4 btn-frm frm-primary">
+      Firmar
+    </button>
+  </div>
+  </ng-container>
+</div>

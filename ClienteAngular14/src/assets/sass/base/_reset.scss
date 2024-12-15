@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+}
+html, body{
+  height: 100%;
+}
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    main{
+      min-height: calc(100% - 162px);
+      position: relative;
+      #content{
+        padding-bottom: 151px;
+      }
+      forum-footer{
+        bottom: 0;
+        left: 0;
+      }
+    }
+}
+p{
+  line-height: 22px;
+}
+.mat-form-field-prefix,
+.mat-form-field-suffix{
+  display:flex;
+}

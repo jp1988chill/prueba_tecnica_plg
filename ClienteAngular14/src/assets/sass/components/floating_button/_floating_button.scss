@@ -1,0 +1,49 @@
+.frm-floating-btn{
+  position: fixed;
+  right: $n-15;
+  bottom: $n-15;
+  border-radius: 100%;
+  outline: none;
+  justify-content: center;
+  box-shadow: 0 16px 24px $black-opacity-2, 0 6px 30px $black-opacity-1, 0 8px 10px $black-opacity-3;
+  min-width: 48px;
+  max-width: 48px;
+  height: 48px;
+  text-align: left;
+  z-index: 1;
+  &:not([class^=mat]){
+    mat-icon{
+      margin-right: 0;
+    }
+  }
+  .frm-call-action{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 767px){
+  .frm-floating-btn{
+    border-radius: $n-50;
+    min-width: 120px;
+    height: 50px;
+    max-width: 170px;
+    .frm-call-action{
+      display: inline-block;
+    }
+
+    &:not([class^=mat]){
+      mat-icon{
+        margin-right: $n-10;
+      }
+    }
+    &.btn-circle{
+      min-width: auto;
+      max-width: none;
+      width: 56px;
+      height: 56px;
+      mat-icon{
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.mat-form-field:not(.mat-paginator-page-size-select){
+  .mat-form-field-flex{
+    min-height: 56px;
+    background-color: $gray-light;
+  }
+  &.dark{
+    .mat-form-field-flex{
+      background-color: $white;
+    }
+    .mat-hint,
+    .mat-form-field-ripple{
+      color: $white;
+    }
+    &.mat-form-field-invalid {
+      .mat-error{
+        color: $white;
+      }
+    }
+  }
+  .mat-form-field-label{
+    color: $dark;
+  }
+  .mat-hint,
+  .mat-form-field-ripple{
+    color: $text;
+  }
+  .mat-error{
+    color: $error;
+  }
+  &.mat-form-field-invalid {
+    .mat-form-field-label{
+      color: $error;
+    }
+    .mat-form-field-ripple{
+      background-color:$error;
+      &.mat-accent{
+        background-color:$error;
+      }
+    }
+  }
+  &.full{
+    width: 100%;
+  }
+}

@@ -1,0 +1,120 @@
+<app-preload *ngIf="preload" message="Por favor espere mientras
+firmamos sus documentos."></app-preload>
+
+<mat-drawer-container class="min-vh-100">
+  <mat-drawer class="bg-primary-dark" #drawer [autoFocus]="false" mode="over" position="end">
+    <app-firmantes [drawer]="true" *ngIf="sidenavFirmantes"></app-firmantes>
+    <app-documentos [drawer]="true" *ngIf="!sidenavFirmantes"></app-documentos>
+  </mat-drawer>
+  <header class="bg-secondary-frm text-white px-3 py-2 mb-4 position-sticky top-0 z-3">
+    <div class="container row mx-auto align-items-center justify-content-between px-0">
+      <div class="col-12 col-md-6 d-flex align-items-center justify-content-between justify-content-md-start">
+        <p class="mb-0">¡Hola <strong>Andrea Gómez</strong>!</p>
+        <button #tooltipHelp="matTooltip" (click)="tooltipHelp.toggle(); openModalhelp()" matTooltip="Ayuda" mat-icon-button>
+          <mat-icon>contact_support</mat-icon>
+        </button>
+      </div>
+      <menu class="col-6 m-0 d-none d-md-block">
+        <ul class="row m-0 p-0 justify-content-end list-unstyled text-white">
+          <li class="mr-3" (click)="drawer.toggle(); sidenavFirmantes = true">
+            <button mat-icon-button>
+              <mat-icon class="w-auto h-auto font-34">groups</mat-icon>
+            </button>
+            <span class="d-block text-nowrap">Tus Firmantes</span>
+          </li>
+          <li (click)="drawer.toggle(); sidenavFirmantes = false">
+            <button mat-icon-button>
+              <mat-icon class="w-auto h-auto font-34">receipt_long</mat-icon>
+            </button>
+            <span class="d-block text-nowrap">Tus documentos</span>
+          </li>
+        </ul>
+      </menu>
+    </div>
+  </header>
+
+  <div class="d-flex align-items-center justify-content-center">
+
+    <ng-container *ngIf="stepper.selectedIndex == 0">
+      <h1 class="font-weight-bold mb-0">Documentos con firma avanzada</h1>
+      <button #tooltipInfoFea="matTooltip" (click)="tooltipInfoFea.toggle()" mat-icon-button matTooltip="Tipo de firma que permite legalizar cualquier documento por medios electrónicos mediante una una entidad certificadora, otorgándole el mismo reconocimiento, protección y valor que tiene un documento  certificado de forma manual." matTooltipClass="font-14">
+        <mat-icon>info_outline</mat-icon>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="stepper.selectedIndex == 1">
+      <h1 class="font-weight-bold mb-0">Documentos con firma simple</h1>
+      <button #tooltipInfoFes="matTooltip" (click)="tooltipInfoFes.toggle()" mat-icon-button matTooltip="Tipo de firma electrónica que permite identificar al autor de un documento, en donde no se necesita una entidad certificadora que respalde su validez, por ejemplo un poder simple." matTooltipClass="font-14">
+        <mat-icon>info_outline</mat-icon>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="stepper.selectedIndex == 2">
+      <h1 class="font-weight-bold mb-0">Documentos firmados</h1>
+    </ng-container>
+
+  </div>
+
+  <mat-horizontal-stepper #stepper class="mt-2 col-12 col-md-6 col-lg-5 mb-5 mx-auto px-0 px-md-3 pt-4">
+    <ng-template matStepperIcon="edit">
+      <mat-icon>done</mat-icon>
+    </ng-template>
+    <mat-step>
+      <p class="mt-3 mb-4 font-16 text-left">A continuación necesitamos que revise
+        y firme los siguientes documentos con su <strong>PIN</strong>
+        de seguridad creado en <strong>Firmaya.cl</strong> y un
+        código que recibirá vía <strong>SMS</strong>.</p>
+
+        <app-doc *ngFor="let doc of documento?.documentos; let i = index" nameDoc="{{doc.nombre}}"></app-doc>
+
+		<!-- <ul *ngFor="let doc of documento?.documentos; let i = index" colorTxt="text-white" [signed]="false" [borderOpacity]="true">
+          <li *ngIf="service.docCompartido?.documentos[i].tipo_firma == 'FEA'" >
+            <p > {{doc.nombre}} (<b>*FEA*</b>)</p>
+          </li>
+        </ul> -->
+		
+        <div class="d-flex justify-content-center my-5">
+          <button *ngIf="!success" (click)="openModalFirmaFea()" class="btn-frm frm-primary px-4">Firmar documentos</button>
+          <button *ngIf="success" (click)="next()" class="btn-frm frm-primary px-4">Siguiente</button>
+        </div>
+
+    </mat-step>
+
+    <mat-step>
+      <p class="mt-3 mb-3 font-16 text-left">¡Quedan los últimos documentos por firmar!</p>
+      <p class="mt-3 mb-3 font-16 text-left">Revise y firme los siguientes documentos. En esta sección necesitará solo un código que recibirá vía SMS para firmar.</p>
+
+      <app-doc nameDoc="Documentos notariales" [success]="success"></app-doc>
+      <app-doc nameDoc="Adquisición tributaria" [success]="success"></app-doc>
+
+      <div class="d-flex justify-content-center my-5">
+        <button *ngIf="!success" (click)="openModalFirmaFes()" class="btn-frm frm-primary px-4">Firmar documentos</button>
+        <button *ngIf="success" (click)="next()" class="btn-frm frm-primary px-4">Finalizar</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <p class="mt-3 mb-3 font-16 text-left font-weight-bold">
+        ¡Felicidades, ha firmado todos sus documentos con éxito!
+      </p>
+      <p class="mt-3 mb-3 font-16 text-left">Nuestro sistema nos indica que ya ha firmado todos sus documentos de forma manual.</p>
+      <p class="mt-3 mb-3 font-16 text-left">Hemos enviado un correo electrónico con la información necesaria sobre su proceso de firma.</p>
+
+      <app-doc nameDoc="Pagaré" [success]="true"></app-doc>
+      <app-doc nameDoc="Contrato de prenda" [success]="true"></app-doc>
+      <app-doc nameDoc="Seguro Electrónico (SOAP)" [success]="true"></app-doc>
+      <app-doc nameDoc="Documentos notariales" [success]="true"></app-doc>
+      <app-doc nameDoc="Adquisición tributaria" [success]="true"></app-doc>
+
+      <div class="d-flex justify-content-center my-5">
+        <button class="btn-frm frm-tertiary mr-2">
+          <mat-icon>file_download</mat-icon>
+          Descargar todo
+        </button>
+        <button routerLink="/" class="btn-frm frm-primary ml-2">Ir al inicio</button>
+      </div>
+
+    </mat-step>
+  </mat-horizontal-stepper>
+  <app-menu-footer [documentoPorMenuFooter] = "documento" class="d-md-none"></app-menu-footer>
+</mat-drawer-container>

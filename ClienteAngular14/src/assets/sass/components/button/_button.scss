@@ -1,0 +1,146 @@
+
+button.frm-primary,
+button.frm-secondary{
+  svg{
+      fill: $white;
+  }
+}
+
+// Generico
+// not(.mat-calendar button, mat-datepicker-toggle button, .mat-menu-item)
+button.btn-frm{
+  box-shadow: 0 1px 1px $black-opacity-2, 0 2px 1px $black-opacity-1, 0 1px 3px $black-opacity-3;
+  transition: box-shadow ease-in 130ms;
+  border: none;
+  font-size: $btn-size;
+  max-width: 100%;
+  min-width: 100px;
+  height: 56px;
+  border-radius: $radius;
+  cursor: pointer;
+  outline-style: dotted;
+  outline-width: 1px;
+  outline-color: $black-opacity-1;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.mat-icon-button,&.mat-menu-item{
+    height: 60px;
+    outline-color: $transparent;
+  }
+  &:hover{
+      .mat-button-wrapper{
+          opacity: .85;
+      }
+      box-shadow: 0 4px 5px $black-opacity-2,
+      0 1px 10px $black-opacity-1,
+      0 2px 4px $black-opacity-3;
+  }
+  &:active{
+    box-shadow: none;
+  }
+  &:disabled{
+      box-shadow: none!important;
+      border: 0!important;
+      pointer-events: none;
+      svg{
+          fill: $dark-opacity;
+      }
+  }
+  mat-icon {
+    margin-right: $n-5;
+  }
+  &:not([class^="mat"]){
+    mat-icon{
+      margin-right: $n-10;
+    }
+  }
+  &.min-w-auto{
+    min-width: auto!important;
+  }
+}
+// generico
+
+// button matmenu
+.mat-menu-panel{
+  @extend .frm-shadow;
+  background-color: $white;
+  button{
+    background-color: $white;
+    &:hover{
+      background-color: $light;
+    }
+  }
+}
+// button matmenu
+
+
+button{
+
+  // Primary
+  &.frm-primary{
+    background-color: $primary-default;
+    color: $white;
+    &:hover,&:active{
+      background-color: $primary-second;
+    }
+  }
+  // Primary
+
+  // Secondary
+  &.frm-secondary{
+    @include color($accent-default, true);
+    @include color($white);
+    &:hover,&:active{
+      background-color: $primary-dark;
+    }
+  }
+  // Secondary
+
+  // Tertiary
+  &.frm-tertiary{
+    border: 1px solid $accent-default!important;
+    @include color($white, true);
+    @include color($accent-default);
+    svg{
+        fill: $accent-default;
+    }
+  }
+  // Tertiary
+
+  // Others
+  &.frm-other{
+    @include color($gray-light, true);
+    @include color($black);
+  }
+  // Others
+
+  // Support
+  &.frm-support{
+    @include color($white, true);
+    @include color($dark);
+    box-shadow: none;
+    outline: none;
+    &:disabled{
+      @include color(transparent, true);
+    }
+    &.dark{
+      &:disabled{
+        @include color($white-opacity);
+      }
+    }
+  }
+  // Support
+
+  // disabled
+  &:not([class*="mat-paginator"]){
+    &:disabled{
+      @include color($gray, true);
+      @include color($dark-opacity);
+    }
+  }
+  // disabled
+
+}
+

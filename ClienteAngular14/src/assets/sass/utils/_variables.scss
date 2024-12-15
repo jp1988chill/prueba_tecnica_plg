@@ -1,0 +1,87 @@
+// Colors
+$white: #fff;
+$white-opacity: rgb(255 255 255 / 70%);
+$white-opacity-30: rgb(255 255 255 / 30%);
+
+// inputs
+$black: #000;
+
+// Background body
+$light: #f4f4f4;
+
+// destacado tabs, texto cabecera
+$light-blue:#5bbeff;
+
+// textos label y parrafos
+$dark: #121212;
+
+//  Skeleton, breadcrumb, placeholder
+$gray: #D3D3D3;
+
+// background elements (inputs, div, footer)
+$gray-light: #E9E9E9;
+
+// Colores de sistema
+$error: #DA3851;
+$informacion: #5BBEFF;
+$success: #48AE64;
+$warning: #F8CD51;
+
+// transparent
+$transparent: transparent;
+
+// Theme default
+$primary-default:#02A5A5;
+$accent-default: #1464A5;
+
+// skeleton dark
+$blue-dark: #1464a5;
+
+// Theme Dark
+ $primary-dark: #004481; // color de fondo elementos (componentes) / // Texto de boton active en terciario, hover y active btn secondary
+ $accent-dark: #072146; // Color de fondo body, contraste, color de fondo cabecera
+// Theme Dark
+
+// Otros
+$primary-second: #028484;
+$disabled: #737373; // Textos botones disabled
+$normal: #1973b8; // Texto boton normal terciario
+$text: #666666;
+// Otros
+
+// Percentage
+$opacity: 0.3;
+
+// rgba
+$black-opacity-1:rgb(0 0 0 / 12%);
+$black-opacity-2:rgb(0 0 0 / 14%);
+$black-opacity-3:rgb(0 0 0 / 20%);
+$dark-opacity:rgb(18 18 18 / 50%);
+
+// rounded
+$radius: 4px;
+
+// Fonts
+$btn-size: 0.875rem;
+$padding: 0.938rem;
+
+// margin
+$n-5: 0.313rem;
+$n-10: 0.625rem;
+$n-15: 0.938rem;
+$n-50: 50rem;
+
+/*Fonts*/
+$fonts: 11, 12, 13, 14, 16, 18, 20, 22, 24, 26, 34, 36, 40, 50, 60, 120;
+
+/*Letter space*/
+$letters: 25, 50, 100, 130;
+
+/*line height*/
+$line-heights: 20, 22, 24, 26, 28;
+
+/*Z*/
+$z-index: 1, 2, 3;
+
+/*scroll*/
+$heights: 250, 320, 480;

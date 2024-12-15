@@ -1,0 +1,41 @@
+<div class="py-3 px-4 social">
+  <div class="justify-content-end row">
+    <button mat-dialog-close mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="border-bottom mt-2 mb-3 pb-3 ">
+    <h2 class="font-18 font-weight-bold text-center">Firmar Documentos</h2>
+    <p class="text-center">Por favor ingrese la siguiente</p>
+    <p class="text-center">información para firmar sus documentos</p>
+  </div>
+
+  <form (submit)="formLogin()" [formGroup]="form" class="rounded frm-shadow px-4 py-5 mx-auto bg-light formSocial">
+
+    <mat-form-field appearance="fill" class="w-100 mb-4 fieldSocial">
+      <mat-label>Clave SMS</mat-label>
+      <input formControlName="claveSMS" [(ngModel)]="claveSMS" matInput />
+
+      <mat-hint>Corresponde a la clave enviada a su correo electrónico</mat-hint>
+      <mat-error>Clave SMS inválida</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100 mb-4 fieldSocial">
+      <mat-label>Clave PIN</mat-label>
+      <input formControlName="clavePIN" [(ngModel)]="clavePIN" matInput />
+
+      <mat-hint>Corresponde a la clave enviada a su correo electrónico</mat-hint>
+      <mat-error>Clave PIN inválida</mat-error>
+    </mat-form-field>
+
+
+    <div class="justify-content-center d-flex mt-3">
+      <button class="btn-frm frm-primary btn-color" [ngClass]="'btn-ripple-ani'">Firmar</button>
+    </div>
+
+  </form>
+
+  <div class="border-bottom mb-3 pb-3">
+
+  </div>
+</div>

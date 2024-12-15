@@ -1,0 +1,27 @@
+<div class="container mb-5">
+  <h1 class="font-weight-bold pt-4">Bienvenido a Aplicación Demo<br class="d-none d-md-block">
+    </h1>
+  <p class="mb-4"><br class="d-none d-md-block">
+    <br class="d-none d-md-block">
+    </p>
+
+  <form [formGroup]="form" (submit)="onSubmit()" class="col-12 col-md-6 col-lg-5 mb-5 mx-auto">
+    <ul formArrayName="values" class="list-unstyled text-left p-0 m-0">
+      <li *ngFor="let question of questions.preguntas; let i = index" class="px-3 py-4 frm-shadow rounded mb-4">
+        <p class="font-weight-bold">{{ question.pregunta }}</p>
+        <div [formGroupName]="i">
+          <mat-radio-group formControlName="answer" color="primary" aria-label="Seleccione respuesta">
+            <mat-radio-button class="w-100 mb-3" *ngFor="let option of question.alternativas" [value]="option.codigorespuesta" >
+              {{ option.respuesta }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </li>
+    </ul>
+
+    <div class="d-flex justify-content-center mt-5">
+      <button [disabled]="!this.form?.valid" class="btn-frm frm-primary px-4">Validar mi identidad</button>
+    </div>
+  </form>
+  <p class="mb-4"></p>
+</div>

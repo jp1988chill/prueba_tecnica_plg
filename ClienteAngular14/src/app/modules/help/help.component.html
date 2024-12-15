@@ -1,0 +1,83 @@
+<ng-container *ngIf="!slide">
+  <h1 class="font-weight-bold pt-4"></h1>
+  <p class="mb-4">Prueba:</p>
+  <div class="col-12 col-md-8 col-lg-5 px-3 px-md-0 mb-5 mx-auto text-left">
+    <ul class="p-0 mb-4 list-unstyled">
+      <li *ngFor="let step of steps; let i = index" class="row mx-auto mb-3">
+        <div>
+          <span class="badge-number rounded-circle bg-primary-frm d-block text-white d-flex justify-content-center align-items-center">
+            {{ i + 1 }}
+            </span>
+        </div>
+        <div class="col">
+          <h2 class="mb-0 font-weight-bold font-14">{{ step.title }}</h2>
+          <p class="mb-0">{{ step.description }}</p>
+        </div>
+      </li>
+    </ul>
+
+    <p></p>
+  </div>
+
+  <div class="d-flex justify-content-center my-4">
+    <button (click)="slide = true" class="btn-frm frm-primary px-5">Comenzar</button>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="slide">
+  <owl-carousel-o class="d-block pt-4 px-2" #owl [options]="owlOptions" (change)="getDataChange($event, owl)">
+
+    <ng-template carouselSlide>
+        <h1 class="font-weight-bold">Clave única</h1>
+        <div class="mb-5 font-16">
+          <p>Contraseña utilizada para autenticar de manera<br class="d-none d-md-block">
+            digital la identidad de una persona, con el fin de<br class="d-none d-md-block">
+            que pueda acceder a nuestros servicios.</p><p>Si no tiene su clave única,<br class="d-none d-md-block">
+            puede obtenerla <a href="https://claveunica.gob.cl/" target="_blank" rel="noopener noreferrer">Aquí</a></p>
+        </div>
+        <img src="./assets/img/password.svg" height="auto" class="svg-img d-block mx-autod-block mx-auto my-5" />
+    </ng-template>
+
+    <ng-template carouselSlide>
+      <h1 class="font-weight-bold">Cédula de identidad</h1>
+      <div class="mb-5 font-16">
+        <p>Número único que se encuentra impreso en su<br class="d-none d-md-block">
+          cédula de identidad.</p>
+      </div>
+      <p class="d-flex justify-content-center">
+          <button (click)="openCarnet()" class="btn-frm frm-tertiary px-4">
+          ¿Dónde está este número?</button>
+      </p>
+      <img src="./assets/img/carnet.svg" height="auto" class="svg-img d-block mx-autod-block mx-auto my-5" />
+    </ng-template>
+
+    <ng-template carouselSlide>
+      <h1 class="font-weight-bold">Teléfono celular</h1>
+      <div class="mb-5 font-16">
+        <p>Necesitará su teléfono celular para recibir<br class="d-none d-md-block">
+          mediante SMS códigos de autorización que<br class="d-none d-md-block">
+          utilizará en distintos puntos del proceso.</p>
+      </div>
+      <img src="./assets/img/phone.svg" height="auto" class="svg-img d-block mx-autod-block mx-auto my-5" />
+    </ng-template>
+
+    <ng-template carouselSlide>
+      <h1 class="font-weight-bold">Clave de seguridad (PIN)</h1>
+      <div class="mb-5 font-16">
+        <p>Necesitará una clave de seguridad (PIN) que<br class="d-none d-md-block">
+          tendrá que crear al registrarse en <strong>firmaya.cl</strong>, la<br class="d-none d-md-block">
+          cual le servirá para firmar digitalmente sus<br class="d-none d-md-block">
+          documentos.</p>
+      <p class="font-weight-bold">¡Recuerde que es muy importante que guarde y<br class="d-none d-md-block">
+        tenga acceso a este número para continuar<br class="d-none d-md-block">
+        con el proceso de firma!</p>
+      </div>
+      <img src="./assets/img/password.svg" height="auto" class="svg-img d-block mx-autod-block mx-auto my-5" />
+    </ng-template>
+
+  </owl-carousel-o>
+  <div class="d-flex justify-content-center my-5">
+    <button *ngIf="owlIndex < 3" (click)="owl.next()" class="btn-frm frm-primary px-5">Siguiente</button>
+    <button *ngIf="owlIndex == 3" (click)="getFirmaya()" class="btn-frm frm-primary px-5">Ir a Firmaya.cl</button>
+  </div>
+</ng-container>

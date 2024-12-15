@@ -1,0 +1,8 @@
+#wrap-brands{
+  max-height: 307px;
+  .brand{
+    &:hover{
+      background-color: $light;
+    }
+  }
+}

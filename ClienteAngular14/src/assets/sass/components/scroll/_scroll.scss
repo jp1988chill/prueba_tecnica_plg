@@ -1,0 +1,17 @@
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: $light;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb {
+  background: $dark-opacity;
+  border-radius: 100px;
+  &:hover{
+    background-color: $black-opacity-3;
+  }
+  &:active{
+    background-color: $dark;
+  }
+}
