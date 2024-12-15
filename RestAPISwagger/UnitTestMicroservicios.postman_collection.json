@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "f0c5234e-5d47-4845-ae00-9ae6640f97fd",
+		"name": "UnitTestMicroservicios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33064080",
+		"_collection_link": "https://team99-3796.postman.co/workspace/team-Workspace~88612420-d2f6-4f9f-9fec-4524bfe5ecaa/collection/33064080-f0c5234e-5d47-4845-ae00-9ae6640f97fd?action=share&source=collection_link&creator=33064080"
+	},
+	"item": [
+		{
+			"name": "CrearCliente",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Clientes\": [\r\n    {\r\n      \"Token\": \"8BA6059C-5584-4CFB-81D8-08D995016207\",\r\n      \"Name\": \"Usuario Prueba1\",\r\n      \"Password\": \"LocalTest1\",\r\n      \"Country\": \"Argentina\",\r\n      \"Phone\": \"+57981111111\"\r\n    },\r\n    {\r\n      \"Token\": \"8BA6059C-5584-4CFB-81D8-08D995016208\",\r\n      \"Name\": \"Usuario Prueba2\",\r\n      \"Password\": \"LocalTest2\",\r\n      \"Country\": \"Bolivia\",\r\n      \"Phone\": \"+51941111111\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44344/action/CrearCliente",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44344",
+					"path": [
+						"action",
+						"CrearCliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarCliente",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Clientes\": [\r\n    {\r\n      \"Token\": \"8BA6059C-5584-4CFB-81D8-08D995016207\",\r\n      \"Name\": \"Usuario Prueba1\",\r\n      \"Password\": \"LocalTest1\",\r\n      \"Country\": \"Argentina\",\r\n      \"Phone\": \"+57981111111\"\r\n    },\r\n    {\r\n      \"Token\": \"8BA6059C-5584-4CFB-81D8-08D995016208\",\r\n      \"Name\": \"Usuario Prueba2\",\r\n      \"Password\": \"LocalTest2\",\r\n      \"Country\": \"Bolivia\",\r\n      \"Phone\": \"+51941111111\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44344/action/EliminarCliente",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44344",
+					"path": [
+						"action",
+						"EliminarCliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearToken",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Clientes\": [\r\n    {\r\n      \"Token\": \"4770D437-81D5-45DD-8507-08D9959B4370\",\r\n      \"Name\": \"User Juan Pablo Neira\",\r\n      \"Password\": \"LocalTest1\",\r\n      \"Country\": \"Chile\",\r\n      \"Phone\": \"+56912345678\"\r\n    },\r\n    {\r\n      \"Token\": \"FB20A841-DA48-4ED1-51CF-08D99533F5EF\",\r\n      \"Name\": \"User Hilbert\",\r\n      \"Password\": \"1234ac\",\r\n      \"Country\": \"Paraguay\",\r\n      \"Phone\": \"+52912345678\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44344/action/CrearToken",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44344",
+					"path": [
+						"action",
+						"CrearToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerClientes",
+			"protocolProfileBehavior": {
+				"strictSSL": false,
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "577168ec-01dc-434a-eb59-08d9b54bf863",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44344/action/ObtenerClientes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44344",
+					"path": [
+						"action",
+						"ObtenerClientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarCliente",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "44841339-2F11-49BE-1B75-08D995B6EE62",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Clientes\":[\r\n      {\r\n         \"token\":\"bd41eb12-7cf4-41a6-d0ea-08dd1c7ee059\",\r\n         \"name\":\"User Juan Pablo Neira\",\r\n         \"password\":\"LocalTest1\",\r\n         \"country\":\"Chile2\",\r\n         \"phone\":\"+569123456789999\",\r\n         \"tokenleasetime\":\"12/14/2024 5:45:41 PM\"\r\n      },\r\n      {\r\n         \"token\":\"b641cd38-6590-415a-d0eb-08dd1c7ee059\",\r\n         \"name\":\"User Hilbert\",\r\n         \"password\":\"1234ac\",\r\n         \"country\":\"Paraguay2\",\r\n         \"phone\":\"+5291234567810101010\",\r\n         \"tokenleasetime\":\"12/14/2024 5:45:41 PM\"\r\n      }\r\n   ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44344/action/ActualizarCliente/Usuario Prueba2/Nuevo User Juan Pablo Neira",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44344",
+					"path": [
+						"action",
+						"ActualizarCliente",
+						"Usuario Prueba2",
+						"Nuevo User Juan Pablo Neira"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
